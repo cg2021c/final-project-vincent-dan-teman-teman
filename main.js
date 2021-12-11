@@ -86,6 +86,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize(window.innerWidth, window.innerHeight);
+
 // renderer.outputEncoding = THREE.sRGBEncoding;
 const pmremGenerator = new THREE.PMREMGenerator( renderer );
 
@@ -98,17 +99,11 @@ const camera = new THREE.OrthographicCamera(
   700 // far plane
 );
 
-
-
 camera.position.set(0, -210, 300);
 camera.lookAt(0, 0, 0);
 
-// controls.update();
-
 const scene = new THREE.Scene();
-
 scene.background = new THREE.Color( 0xbfe3dd );
-
 
 const playerCar = Bus();
 scene.add(playerCar);
@@ -140,13 +135,16 @@ if (config.grid) {
   scene.add(gridHelper);
 }
 
+renderer.render(scene, camera);
+
 if (config.shadows) renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
 
 reset();
 
 function reset() {
-
+  camera.position.set(0, -210, 300);
+  camera.lookAt(0, 0, 0);
   playerAngleMoved = 0;
   score = 0;
   scoreElement.innerText = "Press UP";
