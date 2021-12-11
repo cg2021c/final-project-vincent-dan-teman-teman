@@ -69,27 +69,27 @@ const aspectRatio = window.innerWidth / window.innerHeight;
 const cameraWidth = 960;
 const cameraHeight = cameraWidth / aspectRatio;
 
-const camera = new THREE.PerspectiveCamera(
-  270,
-  cameraWidth/cameraHeight,
-  1, // near plane
-  700 // far plane
-);
-
-camera.position.set(0, 0, 50);
-camera.rotation.order = 'XYZ';
-
-// const camera = new THREE.OrthographicCamera(
-//   cameraWidth / -2, // left
-//   cameraWidth / 2, // right
-//   cameraHeight / 2, // top
-//   cameraHeight / -2, // bottom
-//   50, // near plane
+// const camera = new THREE.PerspectiveCamera(
+//   270,
+//   cameraWidth/cameraHeight,
+//   1, // near plane
 //   700 // far plane
 // );
 
-// camera.position.set(0, -210, 300);
-// camera.lookAt(0, 0, 0);
+// camera.position.set(0, 0, 50);
+// camera.rotation.order = 'XYZ';
+
+const camera = new THREE.OrthographicCamera(
+  cameraWidth / -2, // left
+  cameraWidth / 2, // right
+  cameraHeight / 2, // top
+  cameraHeight / -2, // bottom
+  50, // near plane
+  700 // far plane
+);
+
+camera.position.set(0, -210, 300);
+camera.lookAt(0, 0, 0);
 
 
 const scene = new THREE.Scene();

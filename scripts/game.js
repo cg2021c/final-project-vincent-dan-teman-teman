@@ -42,10 +42,10 @@ function movePlayerCar(timeDelta) {
   playerCar.position.y = playerY;
 
   playerCar.rotation.z = totalPlayerAngle - Math.PI / 2;
-  camera.position.x = playerX
-  camera.position.y = playerY
+  // camera.position.x = playerX
+  // camera.position.y = playerY
 
-  camera.lookAt(playerCar.position.x, -1000, playerCar.rotation.z )
+  // camera.lookAt(playerCar.position.x, -1000, playerCar.rotation.z )
   
 }
 
