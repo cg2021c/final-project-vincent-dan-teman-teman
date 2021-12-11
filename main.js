@@ -1,5 +1,6 @@
-// Main functions
+// import { RoomEnvironment } from "./lib/RoomEnvironment";
 
+// Main functions
 window.focus();
 
 const wheelGeometry = new THREE.BoxBufferGeometry(12, 33, 12);
@@ -66,7 +67,7 @@ setTimeout(() => {
 // Initialize ThreeJs
 // Set up camera
 const aspectRatio = window.innerWidth / window.innerHeight;
-const cameraWidth = 960;
+const cameraWidth = 3000;
 const cameraHeight = cameraWidth / aspectRatio;
 
 // const camera = new THREE.PerspectiveCamera(
@@ -79,6 +80,15 @@ const cameraHeight = cameraWidth / aspectRatio;
 // camera.position.set(0, 0, 50);
 // camera.rotation.order = 'XYZ';
 
+const renderer = new THREE.WebGLRenderer({
+  antialias: true,
+  powerPreference: "high-performance"
+});
+renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setSize(window.innerWidth, window.innerHeight);
+// renderer.outputEncoding = THREE.sRGBEncoding;
+const pmremGenerator = new THREE.PMREMGenerator( renderer );
+
 const camera = new THREE.OrthographicCamera(
   cameraWidth / -2, // left
   cameraWidth / 2, // right
@@ -88,11 +98,17 @@ const camera = new THREE.OrthographicCamera(
   700 // far plane
 );
 
+
+
 camera.position.set(0, -210, 300);
 camera.lookAt(0, 0, 0);
 
+// controls.update();
 
 const scene = new THREE.Scene();
+
+scene.background = new THREE.Color( 0xbfe3dd );
+
 
 const playerCar = Bus();
 scene.add(playerCar);
@@ -124,11 +140,6 @@ if (config.grid) {
   scene.add(gridHelper);
 }
 
-const renderer = new THREE.WebGLRenderer({
-  antialias: true,
-  powerPreference: "high-performance"
-});
-renderer.setSize(window.innerWidth, window.innerHeight);
 if (config.shadows) renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
 
@@ -198,12 +209,12 @@ decelerateButton.addEventListener("mouseup", function () {
   decelerate = false;
 });
 window.addEventListener("keydown", function (event) {
-  if (event.key == "ArrowUp") {
+  if (event.key == "s") {
     startGame();
     accelerate = true;
     return;
   }
-  if (event.key == "ArrowDown") {
+  if (event.key == "d") {
     decelerate = true;
     return;
   }
@@ -213,11 +224,11 @@ window.addEventListener("keydown", function (event) {
   }
 });
 window.addEventListener("keyup", function (event) {
-  if (event.key == "ArrowUp") {
+  if (event.key == "s") {
     accelerate = false;
     return;
   }
-  if (event.key == "ArrowDown") {
+  if (event.key == "d") {
     decelerate = false;
     return;
   }
