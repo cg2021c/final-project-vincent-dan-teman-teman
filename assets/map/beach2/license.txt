@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Poly Beach Scene
+* source:	https://sketchfab.com/3d-models/low-poly-beach-scene-648146d80d1d4e598601bb224996c774
+* author:	Arianna Fedele (https://sketchfab.com/Norzi)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Poly Beach Scene" (https://sketchfab.com/3d-models/low-poly-beach-scene-648146d80d1d4e598601bb224996c774) by Arianna Fedele (https://sketchfab.com/Norzi) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
