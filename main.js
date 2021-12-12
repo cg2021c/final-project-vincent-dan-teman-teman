@@ -4,7 +4,9 @@
 window.focus();
 
 const wheelGeometry = new THREE.BoxBufferGeometry(12, 33, 12);
-const wheelMaterial = new THREE.MeshLambertMaterial({ color: 0x333333 });
+const wheelMaterial = new THREE.MeshLambertMaterial({
+  color: 0x333333
+});
 const treeTrunkGeometry = new THREE.BoxBufferGeometry(15, 15, 30);
 const treeTrunkMaterial = new THREE.MeshLambertMaterial({
   color: treeTrunkColor
@@ -14,11 +16,11 @@ const treeCrownMaterial = new THREE.MeshLambertMaterial({
 });
 
 const config = {
-  showHitZones: false,
-  shadows: true, 
-  trees: true, 
-  curbs: true, 
-  grid: false 
+  showHitZones: true, //Change this to "false" to hide hitbox
+  shadows: true,
+  trees: true,
+  curbs: true,
+  grid: false
 };
 
 let score;
@@ -26,8 +28,8 @@ const speed = 0.0017;
 
 const playerAngleInitial = Math.PI;
 let playerAngleMoved;
-let accelerate = false; 
-let decelerate = false; 
+let accelerate = false;
+let decelerate = false;
 
 let otherVehicles = [];
 let ready;
@@ -84,10 +86,10 @@ const renderer = new THREE.WebGLRenderer({
   antialias: true,
   powerPreference: "high-performance"
 });
-renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 // renderer.outputEncoding = THREE.sRGBEncoding;
-const pmremGenerator = new THREE.PMREMGenerator( renderer );
+const pmremGenerator = new THREE.PMREMGenerator(renderer);
 
 const camera = new THREE.OrthographicCamera(
   cameraWidth / -2, // left
@@ -107,7 +109,7 @@ camera.lookAt(0, 0, 0);
 
 const scene = new THREE.Scene();
 
-scene.background = new THREE.Color( 0xbfe3dd );
+scene.background = new THREE.Color(0xbfe3dd);
 
 
 const playerCar = Bus();
