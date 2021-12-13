@@ -67,27 +67,27 @@ function LPTree3(gltf) {
 }
 
 function SingleTree1(gltf) {
-  handle_load(gltf, 0, -300, 0, 40, 90, 0, 0, single_tree1);
+  handle_load(gltf, 0, 300, 0, 40, 90, 0, 0, single_tree1);
 }
 
 function SingleTree2(gltf) {
-  handle_load(gltf, 60, -350, 0, 40, 90, 0, 0, single_tree2);
+  handle_load(gltf, 60, 350, 0, 40, 90, 0, 0, single_tree2);
 }
 
 function SingleTree3(gltf) {
-  handle_load(gltf, -70, -320, 0, 40, 90, 0, 0, single_tree3);
+  handle_load(gltf, -70, 320, 0, 40, 90, 0, 0, single_tree3);
 }
 
 function SingleTree4(gltf) {
-  handle_load(gltf, -200, -350, 0, 50, 90, 0, 0, single_tree4);
+  handle_load(gltf, -200, 350, 0, 50, 90, 0, 0, single_tree4);
 }
 
 function SingleTree5(gltf) {
-  handle_load(gltf, 450, -350, 0, 60, 90, 0, 0, single_tree5);
+  handle_load(gltf, 325, 350, 0, 60, 90, 0, 0, single_tree5);
 }
 
 function SingleTree6(gltf) {
-  handle_load(gltf, 200, -320, 0, 40, 90, 0, 0, single_tree6);
+  handle_load(gltf, 200, 320, 0, 40, 90, 0, 0, single_tree6);
 }
 
 function handle_load(gltf, x, y, z, sc, xr, yr, zr, mesh) {
