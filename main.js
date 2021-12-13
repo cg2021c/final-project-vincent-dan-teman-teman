@@ -145,6 +145,7 @@ reset();
 function reset() {
   camera.position.set(0, -210, 300);
   camera.lookAt(0, 0, 0);
+  // controls.update();
   playerAngleMoved = 0;
   score = 0;
   scoreElement.innerText = "Press UP";
