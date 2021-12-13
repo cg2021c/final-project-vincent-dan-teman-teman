@@ -69,11 +69,7 @@ setTimeout(() => {
 // Initialize ThreeJs
 // Set up camera
 const aspectRatio = window.innerWidth / window.innerHeight;
-<<<<<<< HEAD
 const cameraWidth = 4000;
-=======
-const cameraWidth = 3000;
->>>>>>> 25eb3b55829efc126043b44d9b2d276ba676fdcd
 const cameraHeight = cameraWidth / aspectRatio;
 
 camera = new THREE.PerspectiveCamera(95, cameraWidth / cameraHeight, 0.1, 20000 );
