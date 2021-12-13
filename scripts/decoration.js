@@ -1,32 +1,17 @@
 var loader = new THREE.GLTFLoader();
-var building1_mesh, building2_mesh, gas_station1_mesh, mountain_house_mesh, city_beach_mesh, beach_mesh, beach_mesh1;
+var decorationMesh;
 
 function main(){
-    loader.load('./assets/map/building1/scene.gltf', building1);
-    loader.load('./assets/map/building2/scene.gltf', building2);
-    loader.load('./assets/map/gas/scene.gltf', gasStasion1);
-    loader.load('./assets/map/mountain_house/scene.gltf', mountainHouse);
-    loader.load('./assets/map/city_on_the_beach/scene.gltf', cityBeach);
+    loader.load('./assets/map/amusement_park/scene.gltf', amusementPark); // comment aj kalo masih sayang laptop
+    loader.load('./assets/map/city/scene.gltf', city); // comment aj kalo masih sayang laptop
 }
 
-function building1(gltf) {
-    handle_load(gltf, -50, 315.0, 0, 1.5, 90, 0, 0, building1_mesh);
+function amusementPark(gltf) {
+    handle_load(gltf, -1000, 250.0, 0, 25, 90, 180, 0, decorationMesh);
 }
 
-function building2(gltf) {
-    handle_load(gltf, -225, 340.0, 0, 25, 80, 0, 0, building2_mesh);
-}
-
-function gasStasion1(gltf) {
-    handle_load(gltf, 220, 50.0, 0, 0.7, 80, 180, 0, gas_station1_mesh);
-}
-
-function mountainHouse(gltf) {
-    handle_load(gltf, -1000, 250.0, 0, 25, 90, 180, 0, mountain_house_mesh);
-}
-
-function cityBeach(gltf) {
-    handle_load(gltf, 500, 250.0, 0, 10, 90, 180, 0, city_beach_mesh);
+function city(gltf) {
+    handle_load(gltf, 500, -1750.0, 4.5, 5, 90, 180, 0, decorationMesh);
 }
 
 function handle_load(gltf, x, y, z, sc, xr, yr,zr, mesh) {
