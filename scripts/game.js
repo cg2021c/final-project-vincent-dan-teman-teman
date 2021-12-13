@@ -1,6 +1,51 @@
 // Animation and game engine
 
 function animation(timestamp) {
+  
+  var posx = camera.position.x;
+  var posy = camera.position.y;
+  var posz = camera.position.z;
+
+  var delta = 0.01;
+  var rotation = 0.0001;
+
+  document.addEventListener('keydown', onDocumentKeyDown, false);
+  function onDocumentKeyDown(event){
+    event = event || window.event;
+    var keycode = event.keyCode;
+    switch(keycode){
+      case 38: //up
+        camera.position.y = camera.position.y + delta;
+        break;
+      case 40: //down
+        camera.position.y = camera.position.y - delta;
+        break;
+      case 37: //left
+        camera.position.x = camera.position.x - delta;
+        break;
+      case 39: //right
+        camera.position.x = camera.position.x + delta;
+        break;
+      case 79: //o, reduce depth
+        camera.position.z = camera.position.z - delta;
+        break;
+      case 80: //p, lift depth
+        camera.position.z = camera.position.z + delta;
+        break;
+      case 188: //less than, rotate camera to left
+        camera.rotation.z = camera.rotation.z + (Math.PI * rotation);
+        break;
+      case 190: //more than, rotate camera to right
+        camera.rotation.z = camera.rotation.z - (Math.PI * rotation);
+        break;
+    }
+
+    document.addEventListener('keyup',onDocumentKeyUp,false);
+    function onDocumentKeyUp(event){
+      document.removeEventListener('keydown',onDocumentKeyDown,false);
+    }
+  }
+
   if (!lastTimestamp) {
     lastTimestamp = timestamp;
     return;

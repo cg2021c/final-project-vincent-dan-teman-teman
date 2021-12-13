@@ -69,18 +69,10 @@ setTimeout(() => {
 // Initialize ThreeJs
 // Set up camera
 const aspectRatio = window.innerWidth / window.innerHeight;
-const cameraWidth = 3000;
+const cameraWidth = 4000;
 const cameraHeight = cameraWidth / aspectRatio;
 
-// const camera = new THREE.PerspectiveCamera(
-//   270,
-//   cameraWidth/cameraHeight,
-//   1, // near plane
-//   700 // far plane
-// );
-
-// camera.position.set(0, 0, 50);
-// camera.rotation.order = 'XYZ';
+camera = new THREE.PerspectiveCamera(95, cameraWidth / cameraHeight, 0.1, 20000 );
 
 const renderer = new THREE.WebGLRenderer({
   antialias: true,
@@ -88,32 +80,26 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
+
 // renderer.outputEncoding = THREE.sRGBEncoding;
 const pmremGenerator = new THREE.PMREMGenerator(renderer);
 
-const camera = new THREE.OrthographicCamera(
-  cameraWidth / -2, // left
-  cameraWidth / 2, // right
-  cameraHeight / 2, // top
-  cameraHeight / -2, // bottom
-  50, // near plane
-  700 // far plane
-);
-
-
-
-camera.position.set(0, -210, 300);
-camera.lookAt(0, 0, 0);
-
-// controls.update();
+// const camera = new THREE.OrthographicCamera(
+//   cameraWidth / -2, // left
+//   cameraWidth / 2, // right
+//   cameraHeight / 2, // top
+//   cameraHeight / -2, // bottom
+//   50, // near plane
+//   700 // far plane
+// );
 
 const scene = new THREE.Scene();
 
 scene.background = new THREE.Color(0xbfe3dd);
 
-
 const playerCar = Bus();
 scene.add(playerCar);
+scene.add(camera);
 
 renderMap(cameraWidth, cameraHeight * 2);
 
@@ -142,13 +128,17 @@ if (config.grid) {
   scene.add(gridHelper);
 }
 
+renderer.render(scene, camera);
+
 if (config.shadows) renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
 
 reset();
 
 function reset() {
-
+  camera.position.set(0, -400.7, 400.5);
+  camera.lookAt(new THREE.Vector3(0, -100, 40));
+  // controls.update();
   playerAngleMoved = 0;
   score = 0;
   scoreElement.innerText = "Press UP";
@@ -176,6 +166,7 @@ function reset() {
   renderer.render(scene, camera);
 
   ready = true;
+  
 }
 
 function startGame() {
