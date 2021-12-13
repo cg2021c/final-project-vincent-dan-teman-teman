@@ -8,7 +8,7 @@ function animation(timestamp) {
 
   const timeDelta = timestamp - lastTimestamp;
 
-  movePlayerCar(timeDelta);
+  // movePlayerCar(timeDelta);
 
   const laps = Math.floor(Math.abs(playerAngleMoved) / (Math.PI * 2));
 
@@ -32,7 +32,7 @@ function animation(timestamp) {
 function movePlayerCar(timeDelta) {
   const playerSpeed = getPlayerSpeed();
   playerAngleMoved -= playerSpeed * timeDelta;
-  
+
   const totalPlayerAngle = playerAngleInitial + playerAngleMoved;
 
   const playerX = Math.cos(totalPlayerAngle) * trackRadius - arcCenterX;
@@ -46,7 +46,7 @@ function movePlayerCar(timeDelta) {
   // camera.position.y = playerY
 
   // camera.lookAt(playerCar.position.x, -1000, playerCar.rotation.z )
-  
+
 }
 
 function moveOtherVehicles(timeDelta) {
@@ -85,7 +85,13 @@ function addVehicle() {
   const mesh = type == "car" ? Car() : Truck();
   scene.add(mesh);
 
-  otherVehicles.push({ mesh, type, speed, clockwise, angle });
+  otherVehicles.push({
+    mesh,
+    type,
+    speed,
+    clockwise,
+    angle
+  });
 }
 
 function getVehicleSpeed(type) {
@@ -114,14 +120,21 @@ function hitDetection() {
     playerCar.position,
     playerAngleInitial + playerAngleMoved,
     true,
-    15
+    40
   );
 
   const playerHitZone2 = getHitZonePosition(
     playerCar.position,
     playerAngleInitial + playerAngleMoved,
     true,
-    -15
+    0
+  );
+
+  const playerHitZone3 = getHitZonePosition(
+    playerCar.position,
+    playerAngleInitial + playerAngleMoved,
+    true,
+    -40
   );
 
   if (config.showHitZones) {
@@ -130,6 +143,9 @@ function hitDetection() {
 
     playerCar.userData.hitZone2.position.x = playerHitZone2.x;
     playerCar.userData.hitZone2.position.y = playerHitZone2.y;
+
+    playerCar.userData.hitZone3.position.x = playerHitZone3.x;
+    playerCar.userData.hitZone3.position.y = playerHitZone3.y;
   }
 
   const hit = otherVehicles.some((vehicle) => {
@@ -162,6 +178,7 @@ function hitDetection() {
 
       // Another vehicle hits the player
       if (getDistance(playerHitZone2, vehicleHitZone1) < 40) return true;
+      if (getDistance(playerHitZone3, vehicleHitZone1) < 40) return true;
     }
 
     if (vehicle.type == "truck") {
@@ -204,6 +221,7 @@ function hitDetection() {
 
       // Another vehicle hits the player
       if (getDistance(playerHitZone2, vehicleHitZone1) < 40) return true;
+      if (getDistance(playerHitZone3, vehicleHitZone1) < 40) return true;
     }
   });
 
