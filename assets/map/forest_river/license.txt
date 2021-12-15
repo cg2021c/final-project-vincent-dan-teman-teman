@@ -1,0 +1,11 @@
+Model Information:
+* title:	Forest River Environment
+* source:	https://sketchfab.com/3d-models/forest-river-environment-a8973e44635840bdafa9ef1a55176c83
+* author:	samuelv (https://sketchfab.com/samuelv)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Forest River Environment" (https://sketchfab.com/3d-models/forest-river-environment-a8973e44635840bdafa9ef1a55176c83) by samuelv (https://sketchfab.com/samuelv) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
