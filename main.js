@@ -55,15 +55,15 @@ const arcAngle3 = Math.acos(arcCenterX / innerTrackRadius);
 const arcAngle4 = Math.acos(arcCenterX / outerTrackRadius);
 
 const scoreElement = document.getElementById("score");
-const buttonsElement = document.getElementById("buttons");
+// const buttonsElement = document.getElementById("buttons");
 const instructionsElement = document.getElementById("instructions");
 const resultsElement = document.getElementById("results");
-const accelerateButton = document.getElementById("accelerate");
-const decelerateButton = document.getElementById("decelerate");
+// const accelerateButton = document.getElementById("accelerate");
+// const decelerateButton = document.getElementById("decelerate");
 
 setTimeout(() => {
   if (ready) instructionsElement.style.opacity = 1;
-  buttonsElement.style.opacity = 1;
+  // buttonsElement.style.opacity = 1;
 }, 4000);
 
 // Initialize ThreeJs
@@ -141,7 +141,7 @@ function reset() {
   // controls.update();
   playerAngleMoved = 0;
   score = 0;
-  scoreElement.innerText = "Press UP";
+  scoreElement.innerText = "Press S";
 
   otherVehicles.forEach((vehicle) => {
 
@@ -173,7 +173,7 @@ function startGame() {
   if (ready) {
     ready = false;
     scoreElement.innerText = 0;
-    buttonsElement.style.opacity = 1;
+    // buttonsElement.style.opacity = 1;
     instructionsElement.style.opacity = 0;
     renderer.setAnimationLoop(animation);
   }
@@ -186,61 +186,3 @@ function positionScoreElement() {
     top: ${window.innerHeight / 2}px
   `;
 }
-
-accelerateButton.addEventListener("mousedown", function () {
-  startGame();
-  accelerate = true;
-});
-decelerateButton.addEventListener("mousedown", function () {
-  startGame();
-  decelerate = true;
-});
-accelerateButton.addEventListener("mouseup", function () {
-  accelerate = false;
-});
-decelerateButton.addEventListener("mouseup", function () {
-  decelerate = false;
-});
-window.addEventListener("keydown", function (event) {
-  if (event.key == "s") {
-    startGame();
-    accelerate = true;
-    return;
-  }
-  if (event.key == "d") {
-    decelerate = true;
-    return;
-  }
-  if (event.key == "R" || event.key == "r") {
-    reset();
-    return;
-  }
-});
-window.addEventListener("keyup", function (event) {
-  if (event.key == "s") {
-    accelerate = false;
-    return;
-  }
-  if (event.key == "d") {
-    decelerate = false;
-    return;
-  }
-});
-
-window.addEventListener("resize", () => {
-  console.log("resize", window.innerWidth, window.innerHeight);
-
-  // Adjust camera
-  const newAspectRatio = window.innerWidth / window.innerHeight;
-  const adjustedCameraHeight = cameraWidth / newAspectRatio;
-
-  camera.top = adjustedCameraHeight / 2;
-  camera.bottom = adjustedCameraHeight / -2;
-  camera.updateProjectionMatrix(); // Must be called after change
-
-  positionScoreElement();
-
-  // Reset renderer
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.render(scene, camera);
-});
