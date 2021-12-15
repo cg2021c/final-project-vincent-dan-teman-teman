@@ -16,7 +16,7 @@ const treeCrownMaterial = new THREE.MeshLambertMaterial({
 });
 
 const config = {
-  showHitZones: true, //Change this to "false" to hide hitbox
+  showHitZones: false, //Change this to "true" to show hitbox hitbox
   shadows: true,
   trees: true,
   curbs: true,

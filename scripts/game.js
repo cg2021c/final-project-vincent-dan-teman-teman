@@ -53,7 +53,7 @@ function animation(timestamp) {
 
   const timeDelta = timestamp - lastTimestamp;
 
-  // movePlayerCar(timeDelta);
+  movePlayerCar(timeDelta);
 
   const laps = Math.floor(Math.abs(playerAngleMoved) / (Math.PI * 2));
 
