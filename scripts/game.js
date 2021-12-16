@@ -27,6 +27,7 @@ function animation(timestamp) {
         camera.position.x = camera.position.x + delta;
         break;
       case 79: //o, reduce depth
+        if (camera.position.z - delta < 10) break;
         camera.position.z = camera.position.z - delta;
         break;
       case 80: //p, lift depth

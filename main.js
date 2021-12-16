@@ -122,7 +122,7 @@ reset();
 
 function reset() {
   mpc = true;
-  camera.position.set(0, -300, 20);
+  camera.position.set(0, -300, 50);
   camera.lookAt(new THREE.Vector3(0, 0, 0));
   playerAngleMoved = 0;
   score = 0;
