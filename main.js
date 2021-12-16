@@ -33,6 +33,7 @@ let decelerate = false;
 
 let otherVehicles = [];
 let ready;
+let mpc;
 let lastTimestamp;
 
 const trackRadius = 225;
@@ -136,8 +137,9 @@ document.body.appendChild(renderer.domElement);
 reset();
 
 function reset() {
-  camera.position.set(0, -400.7, 400.5);
-  camera.lookAt(new THREE.Vector3(0, -100, 40));
+  mpc = true;
+  camera.position.set(0, -300, 20);
+  camera.lookAt(new THREE.Vector3(0, 0, 0));
   // controls.update();
   playerAngleMoved = 0;
   score = 0;
@@ -171,6 +173,7 @@ function reset() {
 
 function startGame() {
   if (ready) {
+    mpc = true;
     ready = false;
     scoreElement.innerText = 0;
     // buttonsElement.style.opacity = 1;

@@ -33,10 +33,14 @@ function animation(timestamp) {
         camera.position.z = camera.position.z + delta;
         break;
       case 188: //less than, rotate camera to left
-        camera.rotation.z = camera.rotation.z + (Math.PI * rotation);
+        camera.rotation.y = camera.rotation.y + (Math.PI * rotation);
         break;
       case 190: //more than, rotate camera to right
-        camera.rotation.z = camera.rotation.z - (Math.PI * rotation);
+        camera.rotation.y = camera.rotation.y - (Math.PI * rotation);
+        break;
+      case 32:
+        if(mpc) mpc = false;
+        else mpc = true;
         break;
     }
 
@@ -53,7 +57,7 @@ function animation(timestamp) {
 
   const timeDelta = timestamp - lastTimestamp;
 
-  movePlayerCar(timeDelta);
+  if (mpc) movePlayerCar(timeDelta);
 
   const laps = Math.floor(Math.abs(playerAngleMoved) / (Math.PI * 2));
 
@@ -66,7 +70,7 @@ function animation(timestamp) {
   // Add a new vehicle at the beginning and with every 5th lap
   if (otherVehicles.length < (laps + 1) / 5) addVehicle();
 
-  moveOtherVehicles(timeDelta);
+  if(mpc) moveOtherVehicles(timeDelta);
 
   hitDetection();
 
