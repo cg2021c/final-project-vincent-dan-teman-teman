@@ -2,8 +2,8 @@
 
 function animation(timestamp) {
 
-  var delta = 0.01;
-  var rotation = 0.0001;
+  var delta = 0.1;
+  var rotation = 0.0005;
 
   document.addEventListener('keydown', onDocumentKeyDown, false);
   function onDocumentKeyDown(event){
