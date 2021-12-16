@@ -169,7 +169,7 @@ function Bus() {
       color: 0xffd800
     })
   );
-  main.position.z = 30;
+  main.position.z = 25;
   main.castShadow = true;
   main.receiveShadow = true;
   bus.add(main);
@@ -196,7 +196,7 @@ function Bus() {
 
   const busRightSideTexture = getBusSideTexture();
 
-  const cabin = new THREE.Mesh(new THREE.BoxBufferGeometry(120, 40, 30), [
+  const cabin = new THREE.Mesh(new THREE.BoxBufferGeometry(120, 40, 32), [
     new THREE.MeshLambertMaterial({
       map: busFrontTexture
     }),
