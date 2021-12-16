@@ -35,3 +35,6 @@ Saat memainkan Traffic Madness, *objective* utama yang harus dicapai pemain adal
 - Karakter panah kiri untuk menggeser posisi kamera ke kiri
 - Karakter panah bawah untuk menggeser posisi kamera ke balakang
 - Karakter panah kanan untuk menggeser posisi kamera ke kanan
+---
+> Game dapat dilihat pada link berikut :
+[Traffic Madness](https://vincentyonathan.itch.io/traffic-madness)
