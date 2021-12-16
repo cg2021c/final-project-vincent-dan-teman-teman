@@ -1,10 +1,6 @@
 // Animation and game engine
 
 function animation(timestamp) {
-  
-  var posx = camera.position.x;
-  var posy = camera.position.y;
-  var posz = camera.position.z;
 
   var delta = 0.01;
   var rotation = 0.0001;
@@ -92,11 +88,7 @@ function movePlayerCar(timeDelta) {
   playerCar.position.y = playerY;
 
   playerCar.rotation.z = totalPlayerAngle - Math.PI / 2;
-  // camera.position.x = playerX
-  // camera.position.y = playerY
-
-  // camera.lookAt(playerCar.position.x, -1000, playerCar.rotation.z )
-
+  
 }
 
 function moveOtherVehicles(timeDelta) {
