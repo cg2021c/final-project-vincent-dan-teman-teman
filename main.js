@@ -1,5 +1,3 @@
-// import { RoomEnvironment } from "./lib/RoomEnvironment";
-
 // Main functions
 window.focus();
 
@@ -56,16 +54,13 @@ const arcAngle3 = Math.acos(arcCenterX / innerTrackRadius);
 const arcAngle4 = Math.acos(arcCenterX / outerTrackRadius);
 
 const scoreElement = document.getElementById("score");
-// const buttonsElement = document.getElementById("buttons");
+const scoreHead = document.getElementById("scorehead");
 const instructionsElement = document.getElementById("instructions");
 const resultsElement = document.getElementById("results");
-// const accelerateButton = document.getElementById("accelerate");
-// const decelerateButton = document.getElementById("decelerate");
 
 setTimeout(() => {
   if (ready) instructionsElement.style.opacity = 1;
-  // buttonsElement.style.opacity = 1;
-}, 4000);
+}, 1000);
 
 // Initialize ThreeJs
 // Set up camera
@@ -84,15 +79,6 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 // renderer.outputEncoding = THREE.sRGBEncoding;
 const pmremGenerator = new THREE.PMREMGenerator(renderer);
-
-// const camera = new THREE.OrthographicCamera(
-//   cameraWidth / -2, // left
-//   cameraWidth / 2, // right
-//   cameraHeight / 2, // top
-//   cameraHeight / -2, // bottom
-//   50, // near plane
-//   700 // far plane
-// );
 
 const scene = new THREE.Scene();
 
@@ -120,8 +106,6 @@ dirLight.shadow.camera.near = 100;
 dirLight.shadow.camera.far = 800;
 scene.add(dirLight);
 
-// const cameraHelper = new THREE.CameraHelper(dirLight.shadow.camera);
-// scene.add(cameraHelper);
 
 if (config.grid) {
   const gridHelper = new THREE.GridHelper(80, 8);
@@ -140,10 +124,8 @@ function reset() {
   mpc = true;
   camera.position.set(0, -300, 20);
   camera.lookAt(new THREE.Vector3(0, 0, 0));
-  // controls.update();
   playerAngleMoved = 0;
   score = 0;
-  scoreElement.innerText = "Score";
 
   otherVehicles.forEach((vehicle) => {
 
@@ -164,7 +146,7 @@ function reset() {
 
   movePlayerCar(0);
 
-
+  scoreElement.innerText = 0;
   renderer.render(scene, camera);
 
   ready = true;
@@ -176,16 +158,18 @@ function startGame() {
     mpc = true;
     ready = false;
     scoreElement.innerText = 0;
-    // buttonsElement.style.opacity = 1;
     instructionsElement.style.opacity = 0;
     renderer.setAnimationLoop(animation);
   }
 }
 
 function positionScoreElement() {
-  const arcCenterXinPixels = (arcCenterX / cameraWidth) * window.innerWidth;
-  scoreElement.style.cssText = `
+  scoreHead.style.cssText = `
     left: ${window.innerWidth / 20}px;
     top: ${window.innerHeight / 20}px
+  `;
+  scoreElement.style.cssText = `
+    left: ${window.innerWidth / 20}px;
+    top: ${window.innerHeight / 10}px
   `;
 }

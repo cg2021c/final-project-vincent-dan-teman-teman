@@ -1,24 +1,11 @@
-  // accelerateButton.addEventListener("mousedown", function () {
-  //   startGame();
-  //   accelerate = true;
-  // });
-  // decelerateButton.addEventListener("mousedown", function () {
-  //   startGame();
-  //   decelerate = true;
-  // });
-  // accelerateButton.addEventListener("mouseup", function () {
-  //   accelerate = false;
-  // });
-  // decelerateButton.addEventListener("mouseup", function () {
-  //   decelerate = false;
-  // });
+// Controls
   window.addEventListener("keydown", function (event) {
-    if (event.key == "s") {
+    if (event.key == "w") {
       startGame();
       accelerate = true;
       return;
     }
-    if (event.key == "d") {
+    if (event.key == "s") {
       decelerate = true;
       return;
     }
@@ -28,11 +15,11 @@
     }
   });
   window.addEventListener("keyup", function (event) {
-    if (event.key == "s") {
+    if (event.key == "w") {
       accelerate = false;
       return;
     }
-    if (event.key == "d") {
+    if (event.key == "s") {
       decelerate = false;
       return;
     }
