@@ -143,7 +143,7 @@ function reset() {
   // controls.update();
   playerAngleMoved = 0;
   score = 0;
-  scoreElement.innerText = "Press S";
+  scoreElement.innerText = "Score";
 
   otherVehicles.forEach((vehicle) => {
 
@@ -185,7 +185,7 @@ function startGame() {
 function positionScoreElement() {
   const arcCenterXinPixels = (arcCenterX / cameraWidth) * window.innerWidth;
   scoreElement.style.cssText = `
-    left: ${window.innerWidth / 2 - arcCenterXinPixels * 1.3}px;
-    top: ${window.innerHeight / 2}px
+    left: ${window.innerWidth / 20}px;
+    top: ${window.innerHeight / 20}px
   `;
 }
