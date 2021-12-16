@@ -91,9 +91,7 @@ function SingleTree6(gltf) {
 }
 
 function handle_load(gltf, x, y, z, sc, xr, yr, zr, mesh) {
-  console.log(gltf);
   mesh = gltf.scene;
-  console.log(mesh.children[0]);
   mesh.children[0].material = new THREE.MeshLambertMaterial();
   mesh.scale.set(sc, sc, sc);
   mesh.position.x = x;
@@ -104,9 +102,9 @@ function handle_load(gltf, x, y, z, sc, xr, yr, zr, mesh) {
   mesh.rotation.z = THREE.Math.degToRad(zr);
   mesh.castShadow = true;
   mesh.receiveShadow = true;
-  console.log("ini mesh");
-  console.log(mesh);
   scene.add(mesh);
+  renderer.render(scene, camera);
+  // console.log("ngeload dulu");
 }
 
 main();
