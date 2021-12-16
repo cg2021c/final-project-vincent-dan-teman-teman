@@ -39,7 +39,7 @@ function ElmTree1(gltf) {
 }
 
 function LPTree1(gltf) {
-  handle_load(gltf, 500, -150, 5, 4, 90, 0, 0, lp_tree1);
+  handle_load(gltf, 500, -150, 5, 0.3, 90, 0, 0, lp_tree1);
 }
 
 function SpruceTree2(gltf) {
@@ -51,7 +51,7 @@ function ElmTree2(gltf) {
 }
 
 function LPTree2(gltf) {
-  handle_load(gltf, -400, 300, 5, 7, 90, 0, 0, lp_tree2);
+  handle_load(gltf, -400, 300, 5, 0.3, 90, 0, 0, lp_tree2);
 }
 
 function SpruceTree3(gltf) {
@@ -63,7 +63,7 @@ function ElmTree3(gltf) {
 }
 
 function LPTree3(gltf) {
-  handle_load(gltf, 290, -430, 5, 4, 90, 0, 0, lp_tree3);
+  handle_load(gltf, 290, -430, 5, 0.1, 90, 0, 0, lp_tree3);
 }
 
 function SingleTree1(gltf) {
